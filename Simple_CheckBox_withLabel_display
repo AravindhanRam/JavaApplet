@@ -1,0 +1,60 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+/*
+	<applet code="CheckboxEX" height="500" width="500">
+	</applet>
+*/
+public class CheckboxEX extends Applet implements ItemListener
+{
+	Checkbox n1,n2,n3,n4;
+	public void init()
+	{
+		setLayout(null);
+		Font f = new Font("SERIF",Font.ITALIC,30);
+		n1 = new Checkbox("Tamil");
+		n1.setBounds(2,2,200,50);
+		//n1.setForeground(Color.white);
+		n1.setBackground(Color.lightGray);
+		n1.setFont(f);
+		
+		n2 = new Checkbox("English");
+		n2.setBounds(2,70,200,50);
+		n2.setBackground(Color.lightGray);
+		n2.setFont(f);
+		
+		n3 = new Checkbox("Telugu");
+		n3.setBounds(2,140,200,50);
+		n3.setBackground(Color.lightGray);
+		n3.setFont(f);
+		
+		n4 = new Checkbox("Malayalam");
+		n4.setBounds(2,210,200,50);
+		n4.setBackground(Color.lightGray);
+		n4.setFont(f);
+		
+		add(n1);
+		add(n2);
+		add(n3);
+		add(n4);
+		n1.addItemListener(this);
+		n2.addItemListener(this);
+		n3.addItemListener(this);
+		n4.addItemListener(this);
+	}
+	public void itemStateChanged(ItemEvent ie)
+	{
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		if(n1.getState())
+			g.drawString(""+n1.getLabel(),2,320);
+		if(n2.getState())
+			g.drawString(""+n2.getLabel(),2,340);
+		if(n3.getState())
+			g.drawString(""+n3.getLabel(),2,360);
+		if(n4.getState())
+			g.drawString(""+n4.getLabel(),2,380);
+	}
+}
