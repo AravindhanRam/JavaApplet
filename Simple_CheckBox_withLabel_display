@@ -2,7 +2,7 @@ import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.*;
 /*
-	<applet code="CheckboxEX" height="500" width="500">
+	<applet code="CheckboxEX" height="600" width="600">
 	</applet>
 */
 public class CheckboxEX extends Applet implements ItemListener
@@ -48,13 +48,14 @@ public class CheckboxEX extends Applet implements ItemListener
 	}
 	public void paint(Graphics g)
 	{
+		g.setFont(new Font("SERIF",Font.ITALIC,30));
 		if(n1.getState())
 			g.drawString(""+n1.getLabel(),2,320);
 		if(n2.getState())
-			g.drawString(""+n2.getLabel(),2,340);
+			g.drawString(""+n2.getLabel(),2,370);
 		if(n3.getState())
-			g.drawString(""+n3.getLabel(),2,360);
+			g.drawString(""+n3.getLabel(),2,420);
 		if(n4.getState())
-			g.drawString(""+n4.getLabel(),2,380);
+			g.drawString(""+n4.getLabel(),2,470);
 	}
 }
