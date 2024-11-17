@@ -1,0 +1,73 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+/*
+	<applet code="Checkbu" height="700" width="500">
+	</applet>
+*/
+public class Checkbu extends Applet implements ActionListener
+{
+	Checkbox n1,n2,n3,n4;
+	Button b1;
+	public void init()
+	{
+		setLayout(null);
+		Font f = new Font("SERIF",Font.ITALIC,30);
+		n1 = new Checkbox("Tamil");
+		n1.setBounds(2,2,200,50);
+		//n1.setForeground(Color.white);
+		n1.setBackground(Color.lightGray);
+		n1.setFont(f);
+		
+		n2 = new Checkbox("English");
+		n2.setBounds(2,70,200,50);
+		n2.setBackground(Color.lightGray);
+		n2.setFont(f);
+		
+		n3 = new Checkbox("Telugu");
+		n3.setBounds(2,140,200,50);
+		n3.setBackground(Color.lightGray);
+		n3.setFont(f);
+		
+		n4 = new Checkbox("Malayalam");
+		n4.setBounds(2,210,200,50);
+		n4.setBackground(Color.lightGray);
+		n4.setFont(f);
+		
+		b1 = new Button("OK");
+		b1.setBounds(100,300,70,70);
+		b1.setForeground(Color.red);
+		b1.setBackground(Color.blue);
+		
+		add(n1);
+		add(n2);
+		add(n3);
+		add(n4);
+		add(b1);
+		b1.addActionListener(this);
+		/*n1.addItemListener(this);
+		n2.addItemListener(this);
+		n3.addItemListener(this);
+		n4.addItemListener(this);*/
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		repaint();
+	}
+
+	public void paint(Graphics g)
+	{
+		g.setFont(new Font("SERIF",Font.ITALIC,30));
+		if(b1.getActionCommand() == "OK")
+		{
+			if(n1.getState())
+				g.drawString(""+n1.getLabel(),2,400);
+			if(n2.getState())
+				g.drawString(""+n2.getLabel(),2,450);
+			if(n3.getState())
+				g.drawString(""+n3.getLabel(),2,500);
+			if(n4.getState())
+				g.drawString(""+n4.getLabel(),2,550);
+		}
+	}
+}
