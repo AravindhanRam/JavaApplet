@@ -1,0 +1,84 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+/*
+	<applet code="UserInterface" height="700" width="1000">
+	</applet>
+*/
+public class UserInterface extends Applet implements ActionListener
+{
+	Label l1,l2,l3;
+	TextField t1,t2;
+	Button b1,b2;
+	public void init()
+	{
+		setLayout(null);
+		Font f = new Font("SERIF",Font.ITALIC,30);
+		
+		l1 = new Label("Welcome To Mission Accomplished");
+		l1.setBounds(260,2,440,50);
+		l1.setFont(f);
+		l1.setForeground(Color.cyan);
+		l1.setBackground(Color.orange);
+		
+		l2 = new Label("Enter_Username :");
+		l2.setBounds(175,70,300,50);
+		l2.setFont(f);
+		l2.setForeground(Color.cyan);
+		l2.setBackground(Color.orange);
+		
+		l3 = new Label("Enter_Password :");
+		l3.setBounds(175,140,300,50);
+		l3.setFont(f);
+		l3.setForeground(Color.cyan);
+		l3.setBackground(Color.orange);
+		
+		t1 = new TextField();
+		t1.setBounds(525,70,300,50);
+		t1.setFont(f);
+		t1.setForeground(Color.cyan);
+		t1.setBackground(Color.orange);
+		
+		t2 = new TextField();
+		t2.setBounds(525,140,300,50);
+		t2.setFont(f);
+		t2.setEchoChar('*');
+		t2.setForeground(Color.cyan);
+		t2.setBackground(Color.orange);
+		
+		b1 = new Button("LOGIN");
+		b1.setBounds(200,210,275,50);
+		b1.setFont(f);
+		b1.setForeground(Color.cyan);
+		b1.setForeground(Color.orange);
+		
+		b2 = new Button("Cancel");
+		b2.setBounds(525,210,275,50);
+		b2.setFont(f);
+		b2.setForeground(Color.cyan);
+		b2.setForeground(Color.orange);
+		
+		add(l1);
+		add(l2);
+		add(l3);
+		add(t1);
+		add(t2);
+		add(b1);
+		add(b2);
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent ae)
+	{
+		if(ae.getActionCommand()=="LOGIN")
+		{
+			t1.setText("Welcome...");
+			t2.setEchoChar(' ');
+		}
+		if(ae.getActionCommand() =="Cancel")
+		{
+			t1.setText(" ");
+			t2.setEchoChar(' ');
+		}
+	}
+}
