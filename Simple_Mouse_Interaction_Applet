@@ -1,0 +1,71 @@
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+/*
+	<applet code="MouseInter" height ="600" width="600">
+	</applet>
+*/
+
+public class MouseInter extends Applet implements MouseListener
+{
+	int x = 0;
+	int y = 0;
+	Color c;
+	Color col = Color.BLACK;
+	Label l1;
+	public void init()
+	{
+		setLayout(null);
+		Font f = new Font("SERIF",Font.ROMAN_BASELINE,30);
+		c = new Color(139,0,139);
+		
+		l1 = new Label("Welcome  To  Mission Accomplished");
+		l1.setForeground(c);
+		l1.setFont(f);
+		l1.setBounds(70,2,500,30);
+		
+		add(l1);
+		addMouseListener(this);
+	}
+	public void mouseClicked(MouseEvent me)
+	{
+		col = Color.green;
+		x = me.getX();
+		y = me.getY();
+		repaint();
+	}
+	public void mousePressed(MouseEvent me)
+	{
+		col = Color.red;
+		x = me.getX();
+		y = me.getY();
+		repaint();
+	}
+	public void mouseReleased(MouseEvent me)
+	{
+		col = Color.magenta;
+		x = me.getX();
+		y = me.getY();
+		repaint();
+	}
+	public void mouseEntered(MouseEvent me)
+	{
+		col = Color.orange;
+		x = me.getX();
+		y = me.getY();
+		repaint();
+	}
+	public void mouseExited(MouseEvent me)
+	{
+		col = Color.orange;
+		x = me.getX();
+		y = me.getY();
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		g.setColor(col);
+		g.fillOval(x, y, 20 ,20);
+	}
+}
